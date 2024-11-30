@@ -19,6 +19,3 @@ spring:
           new_generator_mappings: true
         type:
           preferred_uuid_jdbc_type: CHAR
-  docker:
-    compose:
-      lifecycle-management: start-only
