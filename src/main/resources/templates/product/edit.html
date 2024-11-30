@@ -20,8 +20,6 @@
                 <div th:replace="~{fragments/forms::inputRow(object='product', field='description')}" />
                 <div th:replace="~{fragments/forms::inputRow(object='product', field='price', type='number')}" />
                 <div th:replace="~{fragments/forms::inputRow(object='product', field='stock', type='number')}" />
-                <div th:replace="~{fragments/forms::inputRow(object='product', field='createdDate', required=true)}" />
-                <div th:replace="~{fragments/forms::inputRow(object='product', field='modifiedDate', required=true)}" />
                 <input type="submit" th:value="#{product.edit.headline}" class="btn btn-primary mt-4" />
             </form>
         </div>

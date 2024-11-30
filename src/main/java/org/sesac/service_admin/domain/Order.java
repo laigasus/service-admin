@@ -2,6 +2,7 @@ package org.sesac.service_admin.domain;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EntityListeners;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
@@ -13,10 +14,14 @@ import java.util.UUID;
 import lombok.Getter;
 import lombok.Setter;
 import org.sesac.service_admin.model.OrderState;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 
 @Entity
 @Table(name = "\"Order\"")
+@EntityListeners(AuditingEntityListener.class)
 @Getter
 @Setter
 public class Order {
@@ -38,11 +43,16 @@ public class Order {
     @Column
     private Integer quantity;
 
-    @Column(nullable = false)
-    private OffsetDateTime orderDate;
-
     @Column
     @Enumerated(EnumType.STRING)
     private OrderState orderState;
+
+    @CreatedDate
+    @Column(nullable = false, updatable = false)
+    private OffsetDateTime createdDate;
+
+    @LastModifiedDate
+    @Column(nullable = false)
+    private OffsetDateTime modifiedDate;
 
 }

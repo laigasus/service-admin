@@ -18,7 +18,6 @@
                 <div th:replace="~{fragments/forms::inputRow(object='order', field='accountId')}" />
                 <div th:replace="~{fragments/forms::inputRow(object='order', field='price', type='number')}" />
                 <div th:replace="~{fragments/forms::inputRow(object='order', field='quantity', type='number')}" />
-                <div th:replace="~{fragments/forms::inputRow(object='order', field='orderDate', required=true)}" />
                 <div th:replace="~{fragments/forms::inputRow(object='order', field='orderState', type='select')}" />
                 <input type="submit" th:value="#{order.add.headline}" class="btn btn-primary mt-4" />
             </form>

@@ -27,8 +27,6 @@
                             <th scope="col">[[#{product.description.label}]]</th>
                             <th scope="col">[[#{product.price.label}]]</th>
                             <th scope="col">[[#{product.stock.label}]]</th>
-                            <th scope="col">[[#{product.createdDate.label}]]</th>
-                            <th scope="col">[[#{product.modifiedDate.label}]]</th>
                             <th><!-- --></th>
                         </tr>
                     </thead>
@@ -40,8 +38,6 @@
                             <td>[[${product.description}]]</td>
                             <td>[[${product.price}]]</td>
                             <td>[[${product.stock}]]</td>
-                            <td>[[${product.createdDate}]]</td>
-                            <td>[[${product.modifiedDate}]]</td>
                             <td>
                                 <div class="float-end text-nowrap">
                                     <a th:href="@{/products/edit/{id}(id=${product.id})}" class="btn btn-sm btn-secondary">[[#{product.list.edit}]]</a>
