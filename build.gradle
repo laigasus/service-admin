@@ -5,7 +5,6 @@ plugins {
 }
 
 group = 'org.sesac'
-version = '0.0.1-SNAPSHOT'
 
 java.sourceCompatibility = '21'
 
@@ -42,6 +41,7 @@ dependencies {
     testImplementation('io.rest-assured:rest-assured')
     testImplementation('org.springframework.boot:spring-boot-testcontainers')
     testImplementation('org.testcontainers:mysql')
+    implementation('io.hypersistence:hypersistence-utils-hibernate-63:3+')
 }
 
 tasks.withType(Test) {

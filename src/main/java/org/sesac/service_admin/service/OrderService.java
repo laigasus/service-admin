@@ -1,8 +1,9 @@
 package org.sesac.service_admin.service;
 
-import org.sesac.service_admin.domain.Order;
+import lombok.RequiredArgsConstructor;
+import org.sesac.service_admin.domain.order.Order;
 import org.sesac.service_admin.model.OrderDTO;
-import org.sesac.service_admin.repos.OrderRepository;
+import org.sesac.service_admin.repos.order.OrderRepository;
 import org.sesac.service_admin.util.NotFoundException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -11,15 +12,11 @@ import org.springframework.stereotype.Service;
 
 
 @Service
+@RequiredArgsConstructor
 public class OrderService {
 
     private final OrderRepository orderRepository;
     private final OrderMapper orderMapper;
-
-    public OrderService(final OrderRepository orderRepository, final OrderMapper orderMapper) {
-        this.orderRepository = orderRepository;
-        this.orderMapper = orderMapper;
-    }
 
     public Page<OrderDTO> findAll(final String filter, final Pageable pageable) {
         Page<Order> page;

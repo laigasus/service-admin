@@ -1,11 +1,7 @@
 package org.sesac.service_admin.service;
 
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.MappingConstants;
-import org.mapstruct.MappingTarget;
-import org.mapstruct.ReportingPolicy;
-import org.sesac.service_admin.domain.Product;
+import org.mapstruct.*;
+import org.sesac.service_admin.domain.product.Product;
 import org.sesac.service_admin.model.ProductDTO;
 
 

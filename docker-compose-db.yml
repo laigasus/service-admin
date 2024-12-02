@@ -1,0 +1,33 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: app
+    ports:
+      - "8080:8080"
+    networks:
+      - default
+
+  order-db:
+    image: mysql:latest
+    environment:
+      - MYSQL_DATABASE=order
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - "3317:3306"
+    networks:
+      - default
+
+  product-db:
+    image: mysql:latest
+    environment:
+      - MYSQL_DATABASE=product
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - "3318:3306"
+    networks:
+      - default
+
+networks:
+  default:

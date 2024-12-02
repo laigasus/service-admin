@@ -5,7 +5,7 @@ import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.ReportingPolicy;
-import org.sesac.service_admin.domain.Order;
+import org.sesac.service_admin.domain.order.Order;
 import org.sesac.service_admin.model.OrderDTO;
 
 

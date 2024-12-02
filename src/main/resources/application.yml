@@ -1,21 +1,33 @@
 spring:
-  datasource:
-    url: ${JDBC_DATABASE_URL:jdbc:mysql://localhost:3306/service-admin?serverTimezone=UTC}
-    username: ${JDBC_DATABASE_USERNAME:root}
-    password: ${JDBC_DATABASE_PASSWORD:<<YOUR_PASSWORD>>}
-    hikari:
-      connection-timeout: 30000
-      maximum-pool-size: 10
-  jpa:
+  main:
+    allow-bean-definition-overriding: true
+
+projects:
+  order:
     hibernate:
-      ddl-auto: validate
-    open-in-view: false
-    properties:
-      hibernate:
-        jdbc:
-          lob:
-            non_contextual_creation: true
-        id:
-          new_generator_mappings: true
-        type:
-          preferred_uuid_jdbc_type: CHAR
+      property:
+        "[hibernate.dialect]": org.hibernate.dialect.MySQLDialect
+        "[hibernate.show_sql]": false
+        "[hibernate.hbm2ddl.auto]": validate
+        "[hibernate.cache.use_second_level_cache]": false
+        "[hibernate.cache.use_query_cache]": false
+    datasource:
+      hikari:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbc-url: jdbc:mysql://${ORDER_DB_HOST:localhost}:${ORDER_DB_PORT:3317}/${ORDER_DB_DATABASE:order}
+        username: ${ORDER_DB_USER:root}
+        password: ${ORDER_DB_PASSWORD:root}
+  product:
+    hibernate:
+      property:
+        "[hibernate.dialect]": org.hibernate.dialect.MySQLDialect
+        "[hibernate.show_sql]": false
+        "[hibernate.hbm2ddl.auto]": validate
+        "[hibernate.cache.use_second_level_cache]": false
+        "[hibernate.cache.use_query_cache]": false
+    datasource:
+      hikari:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbc-url: jdbc:mysql://${PRODUCT_DB_HOST:localhost}:${PRODUCT_DB_PORT:3318}/${PRODUCT_DB_DATABASE:product}
+        username: ${PRODUCT_DB_USER:root}
+        password: ${PRODUCT_DB_PASSWORD:root}

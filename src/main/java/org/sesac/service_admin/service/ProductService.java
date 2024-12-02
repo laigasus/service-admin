@@ -1,8 +1,9 @@
 package org.sesac.service_admin.service;
 
-import org.sesac.service_admin.domain.Product;
+import lombok.RequiredArgsConstructor;
+import org.sesac.service_admin.domain.product.Product;
 import org.sesac.service_admin.model.ProductDTO;
-import org.sesac.service_admin.repos.ProductRepository;
+import org.sesac.service_admin.repos.product.ProductRepository;
 import org.sesac.service_admin.util.NotFoundException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -11,16 +12,11 @@ import org.springframework.stereotype.Service;
 
 
 @Service
+@RequiredArgsConstructor
 public class ProductService {
 
     private final ProductRepository productRepository;
     private final ProductMapper productMapper;
-
-    public ProductService(final ProductRepository productRepository,
-            final ProductMapper productMapper) {
-        this.productRepository = productRepository;
-        this.productMapper = productMapper;
-    }
 
     public Page<ProductDTO> findAll(final String filter, final Pageable pageable) {
         Page<Product> page;
