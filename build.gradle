@@ -6,7 +6,10 @@ plugins {
 
 group = 'org.sesac'
 
-java.sourceCompatibility = '21'
+java {ㄴ
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
 
 bootRun {
     environment SPRING_PROFILES_ACTIVE: environment.SPRING_PROFILES_ACTIVE ?: 'local'
